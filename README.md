@@ -57,8 +57,7 @@ sudo apt install flex bison gcc
 Generate Bison Parser Code:
 
 ```bash
-Copy
-Edit
+
 bison -d expr.y
 ```
 This produces expr.tab.c (parser code) and expr.tab.h (token definitions).
@@ -66,8 +65,7 @@ This produces expr.tab.c (parser code) and expr.tab.h (token definitions).
 Generate Flex Lexer Code:
 
 ```bash
-Copy
-Edit
+
 flex expr.l
 ```
 This creates lex.yy.c.
@@ -75,23 +73,20 @@ This creates lex.yy.c.
 Compile Everything Together:
 
 ```bash
-Copy
-Edit
+
 gcc expr.tab.c lex.yy.c -o expr -lfl
 ```
 This links the Flex library (-lfl) and generates an executable named expr.
 
 ▶️ Run the Program
 ```bash
-Copy
-Edit
+
 ./expr
 ```
 Then type a sample input like:
 
 ```c
-Copy
-Edit
+
 a = b + c * d;
 ```
 Press Enter and you'll see the generated instructions.
@@ -100,7 +95,6 @@ Press Enter and you'll see the generated instructions.
 To delete generated files and start fresh:
 
 ```bash
-Copy
-Edit
+
 rm expr expr.tab.* lex.yy.c
 ```
