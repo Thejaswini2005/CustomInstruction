@@ -33,69 +33,68 @@ This project demonstrates a simple compiler front-end that parses arithmetic exp
 a = b + c * d;
 
 
----
-🟢 Output
-asm
-Copy
-Edit
-MUL t0, c, d
-ADD t1, b, t0
-STORE a, t1
 
+## ⚙️ Build & Run Instructions
 
-🔧 Setup and Compilation
-1. Install Dependencies
-Make sure you have Flex and Bison installed:
-
-bash
-Copy
-Edit
-sudo apt install flex bison     # Ubuntu/Debian
+Follow these steps to compile and run the Flex+Bison based instruction generator:
 
 ---
 
-2. Compile the Files
+### 🧰 Prerequisites
+
+Make sure you have the following installed:
+
+- [Flex](https://github.com/westes/flex)
+- [Bison](https://www.gnu.org/software/bison/)
+- GCC (C compiler)
+
+Install them on Ubuntu/Debian using:
+
+```bash
+sudo apt update
+sudo apt install flex bison gcc
+🏗️ Build Steps
+Generate Bison Parser Code:
 
 bash
 Copy
 Edit
 bison -d expr.y
-flex expr.l
-gcc expr.tab.c lex.yy.c -o expr -lfl
+This produces expr.tab.c (parser code) and expr.tab.h (token definitions).
 
----
-3. Run the Parser
+Generate Flex Lexer Code:
+
+bash
+Copy
+Edit
+flex expr.l
+This creates lex.yy.c.
+
+Compile Everything Together:
+
+bash
+Copy
+Edit
+gcc expr.tab.c lex.yy.c -o expr -lfl
+This links the Flex library (-lfl) and generates an executable named expr.
+
+▶️ Run the Program
 bash
 Copy
 Edit
 ./expr
-
-Then input your expression like:
+Then type a sample input like:
 
 c
 Copy
 Edit
 a = b + c * d;
-Press Enter and the generated instruction will be printed.
+Press Enter and you'll see the generated instructions.
 
----
-🧠 How it Works
-Flex (expr.l) identifies identifiers, numbers, and symbols.
+🔁 Optional: Clean Build
+To delete generated files and start fresh:
 
-Bison (expr.y) defines grammar rules and builds custom IR (intermediate representation) using temporary registers.
-
-The parser constructs the code recursively and outputs it in a custom instruction format.
-
----
-🚀 Future Enhancements
-Support for parentheses ()
-
-Error handling and semantic checks
-
-Variable declarations and type support
-
-Export instructions to a file
-
----
-📜 License
-This project is open-source and free to use under the MIT License.
+bash
+Copy
+Edit
+rm expr expr.tab.* lex.yy.c
