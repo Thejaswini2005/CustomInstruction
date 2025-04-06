@@ -42,7 +42,7 @@ MUL t0, c, d
 ADD t1, b, t0
 STORE a, t1
 
----
+
 🔧 Setup and Compilation
 1. Install Dependencies
 Make sure you have Flex and Bison installed:
