@@ -91,7 +91,6 @@ a = b + c * d;
 ```
 📤 Sample Output
 ```asm
-
 MUL t0, c, d
 ADD t1, b, t0
 STORE a, t1
