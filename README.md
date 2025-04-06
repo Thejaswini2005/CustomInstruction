@@ -52,6 +52,7 @@ Install them on Ubuntu/Debian using:
 ```bash
 sudo apt update
 sudo apt install flex bison gcc
+```
 🏗️ Build Steps
 Generate Bison Parser Code:
 
