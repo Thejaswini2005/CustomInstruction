@@ -89,7 +89,20 @@ Then type a sample input like:
 
 a = b + c * d;
 ```
-Press Enter and you'll see the generated instructions.
+📤 Sample Output
+```asm
+
+MUL t0, c, d
+ADD t1, b, t0
+STORE a, t1
+```
+Each line corresponds to a custom instruction:
+
+- MUL t0, c, d → multiplies c and d, stores in t0
+
+- ADD t1, b, t0 → adds b and t0, stores in t1
+
+- STORE a, t1 → stores result into variable a
 
 🔁 Optional: Clean Build
 To delete generated files and start fresh:
