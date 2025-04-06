@@ -33,6 +33,7 @@ This project demonstrates a simple compiler front-end that parses arithmetic exp
 a = b + c * d;
 
 
+---
 🟢 Output
 asm
 Copy
@@ -41,6 +42,7 @@ MUL t0, c, d
 ADD t1, b, t0
 STORE a, t1
 
+---
 🔧 Setup and Compilation
 1. Install Dependencies
 Make sure you have Flex and Bison installed:
@@ -49,6 +51,8 @@ bash
 Copy
 Edit
 sudo apt install flex bison     # Ubuntu/Debian
+
+---
 
 2. Compile the Files
 
@@ -59,6 +63,7 @@ bison -d expr.y
 flex expr.l
 gcc expr.tab.c lex.yy.c -o expr -lfl
 
+---
 3. Run the Parser
 bash
 Copy
@@ -73,6 +78,7 @@ Edit
 a = b + c * d;
 Press Enter and the generated instruction will be printed.
 
+---
 🧠 How it Works
 Flex (expr.l) identifies identifiers, numbers, and symbols.
 
@@ -80,6 +86,7 @@ Bison (expr.y) defines grammar rules and builds custom IR (intermediate represen
 
 The parser constructs the code recursively and outputs it in a custom instruction format.
 
+---
 🚀 Future Enhancements
 Support for parentheses ()
 
@@ -89,5 +96,6 @@ Variable declarations and type support
 
 Export instructions to a file
 
+---
 📜 License
 This project is open-source and free to use under the MIT License.
