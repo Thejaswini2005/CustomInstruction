@@ -31,8 +31,7 @@ This project demonstrates a simple compiler front-end that parses arithmetic exp
 ### ➡️ Input
 ```c
 a = b + c * d;
-
-
+```
 
 ## ⚙️ Build & Run Instructions
 
